@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Extractor of delivery apps">
+    <meta name="author" content="Luk3">
+    <link rel="icon" href="./favicon.ico"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+	<link href="../css/index.css" rel="stylesheet"/>
+	
+    <title>Extractor</title>
+  </head>
+	<body>
+		<div class="container">
+
+		    <!-- Main component for a primary marketing message or call to action -->
+		    <div class="jumbotron">
+		        <h3>Extractor de Teléfonos de PedidosYa</h3>
+		        <p> Coloque sus crendenciales del portal de PedidosYa y adjunte el reporte excel para descargar uno nuevo con los teléfonos</p>
+		        <h2>Sus credenciales no serán guardadas en el sitio.</h2>
+		    </div>
+    
+    		<div class="wrapper fadeInDown">
+	  			<div id="formContent">
+			    <!-- Tabs Titles -->
+			
+			    	<!-- Icon -->
+				    <div class="fadeIn first">
+				      <img src="../img/extract.svg" id="icon" alt="User Icon" width="24px" height="24px"/>
+				    </div>
+	
+			    	<!-- Login Form -->
+				    <form enctype="multipart/form-data" method="post">
+				      <input required type="text" id="user" class="fadeIn second" name="user" placeholder="Usuario de PedidosYa">
+				      <input required type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña de PedidosYa">
+				      
+				       <input required id="file" type="file" name="file" accept=".csv,.xls,.xlsx" class="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Subí tu archivo excel">
+				
+				      <input type="submit" class="fadeIn fourth" value="Descargar Excel">
+				    </form>
+					
+					<div th:if="${error != null}" class="alert alert-danger" role="alert" th:text="${error}"></div>
+				  </div>
+			</div>
+		</div> <!-- /container -->
+
+	    <script src="../js/jquery.min.1.12.4.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/bootstrap-filestyle.min.js"> </script>
+		<script>
+		
+			$(":file").filestyle();
+		</script>
+	</body>
+</html>
